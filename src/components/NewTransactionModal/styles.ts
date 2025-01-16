@@ -7,7 +7,7 @@ export const Overlay = styled(Dialog.Overlay)`
   width: 100vw;
   height: 100vh;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75); /* #00000075 */ /* 75% opacity */
+  background: rgba(0, 0, 0, 0.75);
 `;
 
 export const Content = styled(Dialog.Content)`
@@ -47,7 +47,11 @@ export const Content = styled(Dialog.Content)`
       border-radius: 6px;
       margin-top: 1.25rem;
       cursor: pointer;
-      &:hover {
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      &:not(:disabled):hover {
         background: ${(props) => props.theme["green-700"]};
         transition: background-color 0.2s;
       }
